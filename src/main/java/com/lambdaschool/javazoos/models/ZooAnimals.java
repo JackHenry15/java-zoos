@@ -13,13 +13,13 @@ public class ZooAnimals extends Auditable implements Serializable {
     @ManyToOne
     @JoinColumn(name = "zooid")
     @JsonIgnoreProperties(value = "animals", allowSetters = true)
-    private Animal animal;
+    private Zoo zoo;
 
     @Id
     @ManyToOne
     @JoinColumn(name = "animalid")
     @JsonIgnoreProperties(value = "zoos", allowSetters = true)
-    private Zoo zoo;
+    private Animal animal;
 
 
     private String incomingzoo;
@@ -28,8 +28,8 @@ public class ZooAnimals extends Auditable implements Serializable {
     }
 
     public ZooAnimals(Animal animal, Zoo zoo, String incomingzoo) {
-        this.animal = animal;
         this.zoo = zoo;
+        this.animal = animal;
         this.incomingzoo = incomingzoo;
     }
 
@@ -57,24 +57,44 @@ public class ZooAnimals extends Auditable implements Serializable {
         this.incomingzoo = incomingzoo;
     }
 
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o){
+//            return true;
+//        }
+//        if(!(o instanceof ZooAnimals))
+//        {
+//            return false;
+//        }
+//        ZooAnimals that = (ZooAnimals) o;
+//        return ((zoo == null) ? 0 : zoo.getZooid()) == ((that.zoo == null) ? 0 : that.zoo.getZooid()) &&
+//                ((animal == null) ? 0 : animal.getAnimalid()) == ((that.animal == null) ? 0 : that.animal.getAnimalid());
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return 55;
+//    }
+
+
     @Override
     public boolean equals(Object o) {
-        if (this == o){
+        if (this == o)
+        {
             return true;
         }
-        if(!(o instanceof ZooAnimals))
+        if (!(o instanceof ZooAnimals))
         {
             return false;
         }
         ZooAnimals that = (ZooAnimals) o;
-        return ((zoo == null) ? 0 : zoo.getZooid()) == ((that.zoo == null) ? 0 : that.zoo.getZooid()) &&
+                return ((zoo == null) ? 0 : zoo.getZooid()) == ((that.zoo == null) ? 0 : that.zoo.getZooid()) &&
                 ((animal == null) ? 0 : animal.getAnimalid()) == ((that.animal == null) ? 0 : that.animal.getAnimalid());
     }
 
     @Override
     public int hashCode() {
-        return 55;
+//        return Objects.hash(getAnimal(), getZoo(), getIncomingzoo());
+                return 34;
     }
-
-
 }

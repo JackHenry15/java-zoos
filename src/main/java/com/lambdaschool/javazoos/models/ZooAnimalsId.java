@@ -11,10 +11,6 @@ public class ZooAnimalsId implements Serializable {
     public ZooAnimalsId() {
     }
 
-    public ZooAnimalsId(long zoo, long animal) {
-        this.zoo = zoo;
-        this.animal = animal;
-    }
 
     public long getZoo() {
         return zoo;
@@ -32,6 +28,27 @@ public class ZooAnimalsId implements Serializable {
         this.animal = animal;
     }
 
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o)
+//        {
+//            return true;
+//        }
+//        if (o == null || getClass() != o.getClass())
+//        {
+//            return false;
+//        }
+//        ZooAnimalsId that = (ZooAnimalsId) o;
+//        return (this.zoo == that.zoo) &&
+//                (this.animal == that.animal);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return 55;
+//    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -43,14 +60,11 @@ public class ZooAnimalsId implements Serializable {
             return false;
         }
         ZooAnimalsId that = (ZooAnimalsId) o;
-        return (this.zoo == that.zoo) &&
-                (this.animal == that.animal);
+        return getZoo() == that.getZoo() && getAnimal() == that.getAnimal();
     }
 
     @Override
     public int hashCode() {
-        return 55;
+        return 34;
     }
-
-
 }
