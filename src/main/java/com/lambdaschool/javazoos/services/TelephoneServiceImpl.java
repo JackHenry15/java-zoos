@@ -1,4 +1,4 @@
 package com.lambdaschool.javazoos.services;
 
-public interface ZooAnimalService {
+public class TelephoneServiceImpl {
 }
